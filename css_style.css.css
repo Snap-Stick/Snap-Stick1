@@ -1,0 +1,108 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Home page background */
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.snap {
+    color: purple; /* Purple for "Snap" */
+}
+
+.stick {
+    color: blue; /* Blue for "Stick" */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a, nav input {
+    color: white;
+    text-decoration: none;
+}
+
+nav input {
+    padding: 0.5rem;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+/* Scrolling options */
+#scroll-options {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    background-color: #444;
+}
+
+#scroll-options.hidden {
+    display: none;
+}
+
+#scroll-options.show {
+    display: block;
+}
+
+.option {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    background-color: purple;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Product cards */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.product-card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Hover effect for 3D lift */
+}
+
+.product-card:hover {
+    transform: translateY(-10px) rotateX(5deg); /* 3D hover effect */
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;

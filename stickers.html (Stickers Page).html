@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap Stick - Stickers</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="snap">Snap</span><span class="stick">Stick</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="clothes.html">Clothes</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="all-products.html">Shop All Products</a></li>
+                <li><input type="text" id="search-bar" placeholder="Search products..."></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="codes.html">Codes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Stickers</h1>
+        <div class="products">
+            <div class="product-card">
+                <img src="images/real-madrid-sticker.png" alt="Real Madrid Sticker">
+                <h3>Real Madrid Sticker</h3>
+                <p>30 EGP</p>
+                <button onclick="addToCart('Real Madrid Sticker', 30)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="images/barcelona-sticker.png" alt="Barcelona Sticker">
+                <h3>Barcelona Sticker</h3>
+                <p>35 EGP</p>
+                <button onclick="addToCart('Barcelona Sticker', 35)">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

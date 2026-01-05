@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap Stick - All Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="snap">Snap</span><span class="stick">Stick</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="clothes.html">Clothes</a></li>
+                <li><a href="stickers.html">Stickers</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><input type="text" id="search-bar" placeholder="Search products..."></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="codes.html">Codes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>All Products</h1>
+        <div class="products" id="all-products">
+            <!-- Clothes -->
+            <div class="product-card" data-name="Hoodie">
+                <img src="images/hoodie.png" alt="Hoodie">
+                <h3>Hoodie</h3>
+                <p>400 EGP</p>
+                <button onclick="addToCart('Hoodie', 400)">Add to Cart</button>
+            </div>
+            <div class="product-card" data-name="Blue Hoodie">
+                <img src="images/blue-hoodie.png" alt="Blue Hoodie">
+                <h3>Blue Hoodie</h3>
+                <p>500 EGP</p>
+                <button onclick="addToCart('Blue Hoodie', 500)">Add to Cart</button>
+            </div>
+            <!-- Stickers -->
+            <div class="product-card" data-name="Real Madrid Sticker">
+                <img src="images/real-madrid-sticker.png" alt="Real Madrid Sticker">
+                <h3>Real Madrid Sticker</h3>
+                <p>30 EGP</p>
+                <button onclick="addToCart('Real Madrid Sticker', 30)">Add to Cart</button>
+            </div>
+            <div class="product-card" data-name="Barcelona Sticker">
+                <img src="images/barcelona-sticker.png" alt="Barcelona Sticker">
+                <h3>Barcelona Sticker</h3>
+                <p>35 EGP</p>
+                <button onclick="addToCart('Barcelona Sticker', 35)">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
