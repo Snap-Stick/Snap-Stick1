@@ -1,0 +1,8 @@
+// Simple JS for add-to-cart interaction (optional)
+// Adds an alert when "Add to Cart" is clicked for each product
+document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productName = button.closest('.product-card').dataset.product; // Get product name from data attribute
+        alert(`${productName} added to cart! (This is a demo - no real cart functionality.)`);
+    });
+});
