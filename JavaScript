@@ -1,0 +1,93 @@
+// Initialize cart from localStorage or empty array
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+updateCartCount();
+
+// Function to update cart count in header
+function updateCartCount() {
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cart-count').textContent = count;
+}
+
+// Function to add item to cart
+function addToCart(productId, name, price) {
+    const existingItem = cart.find(item => item.id === productId);
+    if (existingItem) {
+        existingItem.quantity += 1; // Increase quantity if already in cart
+    } else {
+        cart.push({ id: productId, name: name, price: parseFloat(price), quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart)); // Persist to localStorage
+    updateCartCount();
+    alert(`${name} added to cart!`); // Simple feedback
+}
+
+// Function to render cart items in modal
+function renderCart() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = ''; // Clear previous content
+    let total = 0;
+    cart.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.innerHTML = `
+            <p>${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}</p>
+            <button onclick="removeFromCart('${item.id}')">Remove</button>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+        total += item.price * item.quantity;
+    });
+    document.getElementById('cart-total').textContent = total.toFixed(2);
+}
+
+// Function to remove item from cart
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    renderCart();
+}
+
+// Function to clear entire cart
+function clearCart() {
+    cart = [];
+    localStorage.removeItem('cart');
+    updateCartCount();
+    renderCart();
+}
+
+// Event listeners for add-to-cart buttons
+document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const card = button.closest('.product-card');
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+        const price = card.dataset.price;
+        addToCart(id, name, price);
+    });
+});
+
+// Cart modal functionality
+const cartModal = document.getElementById('cart-modal');
+const cartBtn = document.getElementById('cart-btn');
+const closeBtn = document.querySelector('.close-btn');
+const clearCartBtn = document.getElementById('clear-cart-btn');
+
+// Open modal
+cartBtn.addEventListener('click', () => {
+    renderCart();
+    cartModal.style.display = 'flex';
+});
+
+// Close modal
+closeBtn.addEventListener('click', () => {
+    cartModal.style.display = 'none';
+});
+
+// Close modal on outside click
+window.addEventListener('click', (e) => {
+    if (e.target === cartModal) {
+        cartModal.style.display = 'none';
+    }
+});
+
+// Clear cart
+clearCartBtn.addEventListener('click', clearCart);
